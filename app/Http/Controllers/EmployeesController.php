@@ -69,9 +69,11 @@ class EmployeesController extends Controller
      * @param  \App\Employee  $employee
      * @return \Illuminate\Http\Response
      */
-    public function edit(Employee $employee)
+    public function edit($id)
     {
-        //
+        $product = Employee::find($id);
+
+        return response()->json($product);
     }
 
     /**

@@ -26,6 +26,8 @@ Route::get('/employees/create', 'EmployeesController@create')->middleware('auth'
 
 Route::put('/employees/store', 'EmployeesController@store')->middleware('auth');
 
+Route::get('/employees/edit/{product_id}', 'EmployeesController@edit')->middleware('auth')->name('employees.edit');
+
 Route::get('/jobs', function() {
     return view('jobs.jobs');
 })->middleware('auth');

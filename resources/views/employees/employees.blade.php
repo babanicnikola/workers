@@ -71,13 +71,14 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-        <h5 class="modal-title">Employee details</h5>
+        <h5 class="modal-title"></h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-        <input type="text" name="name" value="">
+          <input type="text" name="modal_id" id="modal_id" value=""/><br>
+          <input type="text" name="name" id="name" value=""/>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -87,9 +88,15 @@
     </div>
   </div>
 <script type="text/javascript">
-  
-  $("table td").dblclick(function(){
-    $("#editModal").modal();
+  //------------------------------------------
+  $("table tr").dblclick(function(){
+    var product_id = $(this).data('id');
+    $.get("{{ url('/employees/edit') }}" +'/' + product_id, function (data) {
+      $('.modal-header').html("Edit employee");
+      $('#editModal').modal('show');
+      $('#modal_id').val(data.id);
+      $('#name').val(data.name);
+})
   });
 
 //attach an onclick event handler to the table rows 
