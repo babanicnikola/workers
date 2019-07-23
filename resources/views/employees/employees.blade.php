@@ -96,7 +96,7 @@
 $("#dataTable tbody tr").click(function(){
   $("tr").css('background-color', 'white');
   $("tr").css('color', '#858796');
-	//change the ‘background-color’ property to the desired color.
+	//change the color of the selected row
 	$(this).css('background-color', '#3257CA');
 	$(this).css('color', '#fff');
 });
