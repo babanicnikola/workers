@@ -92,12 +92,6 @@
     $("#editModal").modal();
   });
 
-  $('#editModal').on('show.bs.modal', function (event) {
-  var recipient = button.data('id');
-  var modal = $(this);
-  modal.find('.modal-title').text('New message to ' + recipient);
-});
-
 //attach an onclick event handler to the table rows 
 $("#dataTable tbody tr").click(function(){
   $("tr").css('background-color', 'white');
