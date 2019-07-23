@@ -37,7 +37,7 @@
                 </tfoot>
                 <tbody>
                   @foreach ($results as $post)
-                <tr id="rw" data-target="#editModal" data-id="{{ $post->id }}">
+                <tr class="rw" data-target="#editModal" data-id="{{ $post->id }}">
                       <td > 
                         {{ $post->name }} 
                       </td>
@@ -77,26 +77,49 @@
           </button>
         </div>
         <div class="modal-body">
-          <input type="text" name="modal_id" id="modal_id" value=""/><br>
-          <input type="text" name="name" id="name" value=""/>
+          <input type="text" name="modal_id" id="modal_id" hidden value=""/><br>
+          <input type="text" class="border-bottom-success" name="name" id="name" value=""/>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+            <a href="#" class="btn btn-secondary btn-icon-split" data-dismiss="modal">
+                <span class="icon text-white-50">
+                  <i class="fas fa-arrow-right"></i>
+                </span>
+                <span class="text">Close</span>
+            </a>
+            <a href="#" class="btn btn-danger btn-icon-split">
+                <span class="icon text-white-50">
+                  <i class="fas fa-trash"></i>
+                </span>
+                <span class="text">Fire</span>
+            </a>
+            <a href="#" class="btn btn-success btn-icon-split">
+                <span class="icon text-white-50">
+                  <i class="fas fa-check"></i>
+                </span>
+                <span class="text">Save changes</span>
+            </a>
         </div>
       </div>
     </div>
   </div>
 <script type="text/javascript">
   //------------------------------------------
-  $("table tr").dblclick(function(){
+  $(".rw").dblclick(function(){
     var product_id = $(this).data('id');
     $.get("{{ url('/employees/edit') }}" +'/' + product_id, function (data) {
       $('.modal-header').html("Edit employee");
       $('#editModal').modal('show');
+      $("#name").removeClass("border-bottom-warning");  
+      $("#name").addClass("border-bottom-success");
       $('#modal_id').val(data.id);
       $('#name').val(data.name);
-})
+    });
+  });
+
+  $("#name").on("change paste keyup", function() {
+    $("#name").removeClass("border-bottom-success"); 
+    $("#name").addClass("border-bottom-warning"); 
   });
 
 //attach an onclick event handler to the table rows 

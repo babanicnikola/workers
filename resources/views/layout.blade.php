@@ -69,8 +69,12 @@
                 <a class="nav-link" href="/finances">
                   <i class="fas fa-fw fa-chart-area"></i>
                   <span>Finances</span></a>
-              </li>
-    
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="/schedule">
+                <i class="fas fa-fw fa-table"></i>
+                <span>Schedule</span></a>
+          </li>
 <!-- Divider -->
                 <hr class="sidebar-divider">
             <!-- Nav Item - Salaries -->
