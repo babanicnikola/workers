@@ -77,28 +77,43 @@
           </button>
         </div>
         <div class="modal-body">
-          <input type="text" name="modal_id" id="modal_id" hidden value=""/><br>
-          <input type="text" class="border-bottom-success" name="name" id="name" value=""/>
-        </div>
-        <div class="modal-footer">
-            <a href="#" class="btn btn-secondary btn-icon-split" data-dismiss="modal">
-                <span class="icon text-white-50">
-                  <i class="fas fa-arrow-right"></i>
-                </span>
-                <span class="text">Close</span>
-            </a>
-            <a href="#" class="btn btn-danger btn-icon-split">
-                <span class="icon text-white-50">
-                  <i class="fas fa-trash"></i>
-                </span>
-                <span class="text">Fire</span>
-            </a>
-            <a href="#" class="btn btn-success btn-icon-split">
-                <span class="icon text-white-50">
-                  <i class="fas fa-check"></i>
-                </span>
-                <span class="text">Save changes</span>
-            </a>
+          <!--<input type="text" name="modal_id" id="modal_id" hidden value=""/><br>-->
+          <form action="{{ URL::to('/employees/update/')}}" method="POST">
+            @csrf
+            @method('PUT')
+            <label class="profileLabels" for="name">Name:</label>
+              <input type="text" class="border-bottom-success" name="name" id="name" required/><br>
+            <label class="profileLabels" for="position">Position:</label>
+              <input type="text" class="border-bottom-success" name="position" id="position" required/><br>
+            <label class="profileLabels" for="office">Office:</label>
+              <input type="text" class="border-bottom-success" name="office" id="office" required/><br>
+            <label class="profileLabels" for="age">Age:</label>
+              <input type="number" class="border-bottom-success" name="age" id="age" required/><br>
+            <label class="profileLabels" for="start_date">Start date:</label>
+              <input type="date" class="border-bottom-success" name="start_date" id="start_date" required/><br>
+            <label class="profileLabels" for="salary">Salary:</label>
+              <input type="number" class="border-bottom-success" name="salary" id="salary" required/><br>
+            <div class="modal-footer">
+              <a href="#" class="btn btn-secondary btn-icon-split" data-dismiss="modal">
+                  <span class="icon text-white-50">
+                    <i class="fas fa-arrow-right"></i>
+                  </span>
+                  <span class="text">Close</span>
+              </a>
+              <a href="#" class="btn btn-danger btn-icon-split">
+                  <span class="icon text-white-50">
+                    <i class="fas fa-trash"></i>
+                  </span>
+                  <span class="text">Fire</span>
+              </a>
+              <a href="#" class="btn btn-success btn-icon-split">
+                  <span class="icon text-white-50">
+                    <i class="fas fa-check"></i>
+                  </span>
+                  <span class="text">Save changes</span>
+              </a>
+          </div>
+      </form>
         </div>
       </div>
     </div>
@@ -112,14 +127,55 @@
       $('#editModal').modal('show');
       $("#name").removeClass("border-bottom-warning");  
       $("#name").addClass("border-bottom-success");
-      $('#modal_id').val(data.id);
+      $("#position").removeClass("border-bottom-warning");  
+      $("#position").addClass("border-bottom-success");
+      $("#office").removeClass("border-bottom-warning");  
+      $("#office").addClass("border-bottom-success");
+      $("#age").removeClass("border-bottom-warning");  
+      $("#age").addClass("border-bottom-success");
+      $("#start_date").removeClass("border-bottom-warning");  
+      $("#start_date").addClass("border-bottom-success");
+      $("#salary").removeClass("border-bottom-warning");  
+      $("#salary").addClass("border-bottom-success");
+
+      //$('#modal_id').val(data.id);
       $('#name').val(data.name);
+      $('#position').val(data.position);
+      $('#office').val(data.office);
+      $('#age').val(data.age);
+      $('#start_date').val(data.start_date);
+      $('#salary').val(data.salary);
     });
   });
 
   $("#name").on("change paste keyup", function() {
     $("#name").removeClass("border-bottom-success"); 
     $("#name").addClass("border-bottom-warning"); 
+  });
+
+  $("#position").on("change paste keyup", function() {
+    $("#position").removeClass("border-bottom-success"); 
+    $("#position").addClass("border-bottom-warning"); 
+  });
+
+  $("#office").on("change paste keyup", function() {
+    $("#office").removeClass("border-bottom-success"); 
+    $("#office").addClass("border-bottom-warning"); 
+  });
+
+  $("#age").on("change paste keyup", function() {
+    $("#age").removeClass("border-bottom-success"); 
+    $("#age").addClass("border-bottom-warning"); 
+  });
+
+  $("#start_date").on("change paste keyup", function() {
+    $("#start_date").removeClass("border-bottom-success"); 
+    $("#start_date").addClass("border-bottom-warning"); 
+  });
+
+  $("#salary").on("change paste keyup", function() {
+    $("#salary").removeClass("border-bottom-success"); 
+    $("#salary").addClass("border-bottom-warning"); 
   });
 
 //attach an onclick event handler to the table rows 

@@ -28,14 +28,11 @@ Route::put('/employees/store', 'EmployeesController@store')->middleware('auth');
 
 Route::get('/employees/edit/{product_id}', 'EmployeesController@edit')->middleware('auth')->name('employees.edit');
 
-Route::get('/jobs', function() {
-    return view('jobs.jobs');
+Route::get('/offices', function() {
+    return view('offices.offices');
 })->middleware('auth');
-Route::get('/jobs/create', function() {
-    return view('jobs.create');
-})->middleware('auth');
-Route::get('/jobs/assign', function() {
-    return view('jobs.assign');
+Route::get('/offices/create', function() {
+    return view('offices.create');
 })->middleware('auth');
 
 Route::get('/finances', function() {

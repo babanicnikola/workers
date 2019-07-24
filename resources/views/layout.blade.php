@@ -41,7 +41,7 @@
         <!-- Nav Item - Pages Collapse Menu -->
                  <li class="nav-item">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                        <i class="fas fa-fw fa-cog"></i>
+                        <i class="fas fa-fw fa-briefcase"></i>
                         <span>Employees</span>
                     </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -54,26 +54,33 @@
           <!-- Nav Item - Jobs Collapse Menu -->
       <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
-              <i class="fas fa-fw fa-wrench"></i>
-              <span>Jobs</span>
+              <i class="fas fa-fw fa-building"></i>
+              <span>Offices</span>
             </a>
             <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
               <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="/jobs">Current jobs</a>
-                <a class="collapse-item" href="/jobs/create">Add new job</a>
-                <a class="collapse-item" href="/jobs/assign">Assign job</a>
+                <a class="collapse-item" href="/offices">Offices list</a>
+                <a class="collapse-item" href="/offices/create">Add new office</a>
               </div>
             </div>
           </li>
           <li class="nav-item">
-                <a class="nav-link" href="/finances">
-                  <i class="fas fa-fw fa-chart-area"></i>
-                  <span>Finances</span></a>
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFinances" aria-expanded="true" aria-controls="collapseFinances">
+              <i class="fas fa-fw fa-money-bill-alt"></i>
+              <span>Finances</span>
+            </a>
+            <div id="collapseFinances" class="collapse" aria-labelledby="headingFinances" data-parent="#accordionSidebar">
+              <div class="bg-white py-2 collapse-inner rounded">
+                <a class="collapse-item" href="/finances">Incomes</a>
+                <a class="collapse-item" href="/finances">Outcomes</a>
+                <a class="collapse-item" href="/finances">Expenses</a>
+              </div>
+            </div>
           </li>
           <li class="nav-item">
-              <a class="nav-link" href="/schedule">
-                <i class="fas fa-fw fa-table"></i>
-                <span>Schedule</span></a>
+              <a class="nav-link" href="#">
+                <i class="fas fa-fw fa-calendar-alt"></i>
+                <span>Schedules</span></a>
           </li>
 <!-- Divider -->
                 <hr class="sidebar-divider">
@@ -168,12 +175,11 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
           <button class="close" type="button" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">×</span>
           </button>
         </div>
-        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+        <div class="modal-body">Are you sure you want to logout?</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
           <a class="btn btn-primary" href="{{ route('logout') }}"
