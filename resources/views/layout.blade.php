@@ -78,7 +78,7 @@
             </div>
           </li>
           <li class="nav-item">
-              <a class="nav-link" href="#">
+              <a class="nav-link" href="/schedules">
                 <i class="fas fa-fw fa-calendar-alt"></i>
                 <span>Schedules</span></a>
           </li>
@@ -174,11 +174,6 @@
   <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
-        <div class="modal-header">
-          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">×</span>
-          </button>
-        </div>
         <div class="modal-body">Are you sure you want to logout?</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>

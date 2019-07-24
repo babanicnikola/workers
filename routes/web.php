@@ -38,3 +38,7 @@ Route::get('/offices/create', function() {
 Route::get('/finances', function() {
     return view('finances');
 })->middleware('auth');
+
+Route::get('/schedules', function() {
+    return view('schedules');
+})->middleware('auth');
