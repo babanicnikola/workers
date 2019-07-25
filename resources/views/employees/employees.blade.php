@@ -65,8 +65,8 @@
         </div>
 
       </div>
-      <!-- /.container-fluid --> 
-      <!-- Modal -->
+      <!-- Page Content END--> 
+  <!-- Edit Modal -->
 <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -77,22 +77,26 @@
           </button>
         </div>
         <div class="modal-body">
-          <!--<input type="text" name="modal_id" id="modal_id" hidden value=""/><br>-->
           <form action="{{ URL::to('/employees/update/')}}" method="POST">
             @csrf
             @method('PUT')
+            <input type="text" name="id" id="modal_id" readonly hidden value=""/>
             <label class="profileLabels" for="name">Name:</label>
-              <input type="text" class="border-bottom-success" name="name" id="name" required/><br>
+              <input type="text" class="profileInputs border-bottom-success" name="name" id="name" required/><br>
             <label class="profileLabels" for="position">Position:</label>
-              <input type="text" class="border-bottom-success" name="position" id="position" required/><br>
+              <input type="text" class="profileInputs border-bottom-success" name="position" id="position" required/><br>
             <label class="profileLabels" for="office">Office:</label>
-              <input type="text" class="border-bottom-success" name="office" id="office" required/><br>
+              <input type="text" class="profileInputs border-bottom-success" name="office" id="office" required/><br>
             <label class="profileLabels" for="age">Age:</label>
-              <input type="number" class="border-bottom-success" name="age" id="age" required/><br>
+              <input type="number" class="profileInputs border-bottom-success" name="age" id="age" required/><br>
             <label class="profileLabels" for="start_date">Start date:</label>
-              <input type="date" class="border-bottom-success" name="start_date" id="start_date" required/><br>
+              <input type="date" class="profileInputs border-bottom-success" name="start_date" id="start_date" required/><br>
             <label class="profileLabels" for="salary">Salary:</label>
-              <input type="number" class="border-bottom-success" name="salary" id="salary" required/><br>
+              <input type="number" class="profileInputs border-bottom-success" name="salary" id="salary" required/><br>
+            
+            <img src="public/vendor/fontawesome-free/svgs/solid" alt="">
+
+            <!-- MODAL FOOTER START -->
             <div class="modal-footer">
               <a href="#" class="btn btn-secondary btn-icon-split" data-dismiss="modal">
                   <span class="icon text-white-50">
@@ -100,29 +104,31 @@
                   </span>
                   <span class="text">Close</span>
               </a>
-              <a href="#" class="btn btn-danger btn-icon-split">
+              <a href="#" class="btn btn-danger btn-icon-split" id="modal_del_btn">
                   <span class="icon text-white-50">
                     <i class="fas fa-trash"></i>
                   </span>
                   <span class="text">Fire</span>
               </a>
-              <a href="#" class="btn btn-success btn-icon-split">
+              <a href="#" class="btn btn-success btn-icon-split" onclick="$(this).closest('form').submit()">
                   <span class="icon text-white-50">
                     <i class="fas fa-check"></i>
                   </span>
                   <span class="text">Save changes</span>
               </a>
-          </div>
-      </form>
+            </div>
+          <!-- MODAL FOOTER END -->
+          </form>
         </div>
       </div>
     </div>
   </div>
+  <!-- EDIT MODAL END -->
 <script type="text/javascript">
   //------------------------------------------
   $(".rw").dblclick(function(){
-    var product_id = $(this).data('id');
-    $.get("{{ url('/employees/edit') }}" +'/' + product_id, function (data) {
+    var emp_id = $(this).data('id');
+    $.get("{{ url('/employees/edit') }}" +'/' + emp_id, function (data) {
       $('.modal-header').html("Edit employee");
       $('#editModal').modal('show');
       $("#name").removeClass("border-bottom-warning");  
@@ -137,8 +143,11 @@
       $("#start_date").addClass("border-bottom-success");
       $("#salary").removeClass("border-bottom-warning");  
       $("#salary").addClass("border-bottom-success");
+      $("#modal_del_btn").attr("data-confirm", "Are you sure?");
+      $("#modal_del_btn").attr("data-method", "delete");
+      $("#modal_del_btn").attr("href", "/employees/delete/"+emp_id);
 
-      //$('#modal_id').val(data.id);
+      $('#modal_id').val(data.id);
       $('#name').val(data.name);
       $('#position').val(data.position);
       $('#office').val(data.office);
@@ -152,27 +161,22 @@
     $("#name").removeClass("border-bottom-success"); 
     $("#name").addClass("border-bottom-warning"); 
   });
-
   $("#position").on("change paste keyup", function() {
     $("#position").removeClass("border-bottom-success"); 
     $("#position").addClass("border-bottom-warning"); 
   });
-
   $("#office").on("change paste keyup", function() {
     $("#office").removeClass("border-bottom-success"); 
     $("#office").addClass("border-bottom-warning"); 
   });
-
   $("#age").on("change paste keyup", function() {
     $("#age").removeClass("border-bottom-success"); 
     $("#age").addClass("border-bottom-warning"); 
   });
-
   $("#start_date").on("change paste keyup", function() {
     $("#start_date").removeClass("border-bottom-success"); 
     $("#start_date").addClass("border-bottom-warning"); 
   });
-
   $("#salary").on("change paste keyup", function() {
     $("#salary").removeClass("border-bottom-success"); 
     $("#salary").addClass("border-bottom-warning"); 

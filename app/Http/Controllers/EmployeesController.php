@@ -85,7 +85,17 @@ class EmployeesController extends Controller
      */
     public function update(Request $request, Employee $employee)
     {
-        //
+        $request->validate([//Validate data received
+            'id' => 'required',
+            'name' => 'required',
+            'position' => 'required',
+            'office' => 'required',
+            'age' => 'required',
+            'start_date' => 'required',
+            'salary' => 'required'
+        ]);
+        Employee::whereId($request->id)->update(request()->except(['_token', '_method']));
+        return redirect('/employees');
     }
 
     /**
@@ -94,8 +104,12 @@ class EmployeesController extends Controller
      * @param  \App\Employee  $employee
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Employee $employee)
+    public function destroy($id)
     {
-        //
+        $post = Employee::findOrFail($id);
+ 
+        $post->delete($id); 
+          
+        return redirect('/employees');
     }
 }

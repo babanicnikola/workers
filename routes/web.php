@@ -26,7 +26,11 @@ Route::get('/employees/create', 'EmployeesController@create')->middleware('auth'
 
 Route::put('/employees/store', 'EmployeesController@store')->middleware('auth');
 
-Route::get('/employees/edit/{product_id}', 'EmployeesController@edit')->middleware('auth')->name('employees.edit');
+Route::get('/employees/edit/{emp_id}', 'EmployeesController@edit')->middleware('auth')->name('employees.edit');
+
+Route::put('/employees/update', 'EmployeesController@update')->middleware('auth');
+
+Route::get('/employees/delete/{id}', 'EmployeesController@destroy')->middleware('auth');;
 
 Route::get('/offices', function() {
     return view('offices.offices');

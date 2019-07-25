@@ -9,3 +9,7 @@
 .profileSubmit {
 	margin-left: 84px;
 }
+
+.modal-footer>:not(:last-child) {
+    margin: auto !important;
+}
