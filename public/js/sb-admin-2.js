@@ -1,5 +1,6 @@
 (function($) {
-
+  "use strict"; // Start of use strict
+  
   // Toggle the side navigation
   $(document).ready(function () {
     var navState = localStorage.getItem('sidebar');
@@ -12,7 +13,6 @@
     if (navState == 'untoggled') {
       untoggleNav();
     }
-    console.log(navState);
   });
 
   $("#sidebarToggle, #sidebarToggleTop").on('click', function() {

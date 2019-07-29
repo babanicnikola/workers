@@ -94,7 +94,6 @@
             <label class="profileLabels" for="salary">Salary:</label>
               <input type="number" class="profileInputs border-bottom-success" name="salary" id="salary" required/><br>
             
-            <img src="public/vendor/fontawesome-free/svgs/solid" alt="">
 
             <!-- MODAL FOOTER START -->
             <div class="modal-footer">

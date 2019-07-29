@@ -205,6 +205,7 @@
 
   <!-- Page level custom scripts -->
   <script type="text/javascript" src="{{ asset('js/demo/datatables-demo.js') }}" defer></script>
+<!-- Page level plugins -->
 
 </body>
 

@@ -13,3 +13,7 @@
 .modal-footer>:not(:last-child) {
     margin: auto !important;
 }
+
+#userDropdown{
+	font-size: 23px;
+}
