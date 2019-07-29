@@ -1,14 +1,43 @@
 (function($) {
-  "use strict"; // Start of use strict
 
   // Toggle the side navigation
-  $("#sidebarToggle, #sidebarToggleTop").on('click', function(e) {
-    $("body").toggleClass("sidebar-toggled");
-    $(".sidebar").toggleClass("toggled");
-    if ($(".sidebar").hasClass("toggled")) {
-      $('.sidebar .collapse').collapse('hide');
-    };
+  $(document).ready(function () {
+    var navState = localStorage.getItem('sidebar');
+    if (navState == 0){
+      localStorage.setItem('sidebar', 'untoggled');
+    }
+    if (navState == 'toggled') {
+      toggleNav();
+    }
+    if (navState == 'untoggled') {
+      untoggleNav();
+    }
   });
+
+  $("#sidebarToggle, #sidebarToggleTop").on('click', function() {
+    var navState = localStorage.getItem('sidebar');
+
+    if (navState == 'toggled') {
+      localStorage.setItem('sidebar', 'untoggled');
+      untoggleNav();
+    }
+    if (navState == 'untoggled') {
+      localStorage.setItem('sidebar', 'toggled');
+      toggleNav();
+    }
+  });
+
+  function toggleNav(){
+    $("body").addClass("sidebar-toggled");
+    $(".sidebar").addClass("toggled");
+    localStorage.setItem('sidebar', 'toggled');
+  }
+
+  function untoggleNav(){
+    $("body").removeClass("sidebar-toggled");
+    $(".sidebar").removeClass("toggled");
+    localStorage.setItem('sidebar', 'untoggled');
+  }
 
   // Close any open menu accordions when window is resized below 768px
   $(window).resize(function() {
