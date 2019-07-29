@@ -3,7 +3,7 @@
   // Toggle the side navigation
   $(document).ready(function () {
     var navState = localStorage.getItem('sidebar');
-    if (navState == 0){
+    if (navState == null){
       localStorage.setItem('sidebar', 'untoggled');
     }
     if (navState == 'toggled') {
@@ -12,6 +12,7 @@
     if (navState == 'untoggled') {
       untoggleNav();
     }
+    console.log(navState);
   });
 
   $("#sidebarToggle, #sidebarToggleTop").on('click', function() {
