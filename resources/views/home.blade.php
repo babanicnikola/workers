@@ -1,15 +1,12 @@
 @extends('layout') 
     @section('content')
     <div class="container-fluid">
-
-        <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
           <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
         </div>
 
         <div class="row">
-
-          <!-- Earnings (Monthly) Card Example -->
+          <!-- Salaries Card -->
           <div class="col-xl-3 col-md-6 mb-4">
             <div class="card border-left-primary shadow h-100 py-2">
               <div class="card-body">
@@ -19,14 +16,14 @@
                   <div class="h5 mb-0 font-weight-bold text-gray-800">${{number_format( $salaries )}}</div>
                   </div>
                   <div class="col-auto">
-                    <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                    <i class="fas fa-money-bill-alt fa-2x text-gray-300"></i>
                   </div>
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- Earnings (Monthly) Card Example -->
+          <!-- Earnings Card Example -->
           <div class="col-xl-3 col-md-6 mb-4">
             <div class="card border-left-success shadow h-100 py-2">
               <div class="card-body">
@@ -43,7 +40,7 @@
             </div>
           </div>
 
-          <!-- Earnings (Monthly) Card Example -->
+          <!-- Number of offices Card -->
           <div class="col-xl-3 col-md-6 mb-4">
             <div class="card border-left-info shadow h-100 py-2">
               <div class="card-body">
@@ -58,14 +55,14 @@
                     </div>
                   </div>
                   <div class="col-auto">
-                    <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                    <i class="fas fa-building fa-2x text-gray-300"></i>
                   </div>
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- Pending Requests Card Example -->
+          <!-- Total employees Card -->
           <div class="col-xl-3 col-md-6 mb-4">
             <div class="card border-left-warning shadow h-100 py-2">
               <div class="card-body">
@@ -75,7 +72,7 @@
                   <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $numemp }}</div>
                   </div>
                   <div class="col-auto">
-                    <i class="fas fa-comments fa-2x text-gray-300"></i>
+                    <i class="fas fa-user-md fa-2x text-gray-300"></i>
                   </div>
                 </div>
               </div>
@@ -119,13 +116,10 @@
           </div>
         </div>
       <!-- CHARTS END -->
-      </div>
-      <!-- /.container-fluid -->
-      <!-- Charts scripts -->
+      </div><!-- Container fluid END -->
+<!-- Charts scripts -->
 <script type="text/javascript" src="{{ asset("vendor/chart.js/Chart.min.js") }}" defer></script>
 <script type="text/javascript" src="{{ asset("js/demo/chart-area-demo.js") }}" defer></script>
 <script type="text/javascript" src="{{ asset("js/demo/chart-pie-demo.js") }}" defer></script>
 
 @endsection
-                
-  

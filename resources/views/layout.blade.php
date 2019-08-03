@@ -8,7 +8,7 @@
     <title>{{ config('app.name') }}</title>
     <!-- Styles -->
     <link href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/sb-admin-2.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/sb-admin-2.css') }}" rel="stylesheet">
     <link href="{{ asset('vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
     <script src="{!!url('https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js')!!}"></script>
     <!-- Custom style -->
@@ -114,7 +114,7 @@
     <i class="fas fa-angle-up"></i>
   </a>
 
-  <!-- Logout Modal-->
+  <!-- Logout Modal BEGINNING -->
   <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -133,7 +133,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </div><!-- Logout Modal END-->
 
   <!-- Bootstrap core JavaScript-->
   <script type="text/javascript" src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
