@@ -2,13 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\office;
 use Auth;
-use App\Employee;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Input;
-use Illuminate\Support\Facades\DB;
 
-class EmployeesController extends Controller
+class officesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,9 +15,9 @@ class EmployeesController extends Controller
      */
     public function index()
     {
-        $results = Employee::select('*')->from('employees')->where('user_id','=',Auth::user()->id)->get();
+        $results = office::select('*')->from('offices')->where('user_id','=',Auth::user()->id)->get();
 
-        return view('employees.employees',compact('results'));
+        return view('offices.offices',compact('results'));
     }
 
     /**
@@ -29,7 +27,7 @@ class EmployeesController extends Controller
      */
     public function create()
     {
-        return view('employees.create');
+        return view('offices.create');
     }
 
     /**
@@ -42,23 +40,21 @@ class EmployeesController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'position',
-            'office_id' => 'required',
-            'age',
-            'start_date' => 'required',
-            'salary' => 'required'
+            'city',
+            'street'
         ]);
-        Employee::create(['user_id' => Auth::user()->id, 'name' => $request->name, 'position' => $request->position, 'office_id' => $request->office_id, 'age' =>$request->age, 'start_date' =>$request->start_date, 'salary' =>$request->salary]);
-        return redirect('/employees');
+        office::create(['user_id' => Auth::user()->id, 'name' => $request->name,  'city' =>$request->city, 'street' =>$request->street]);
+
+        return redirect('/offices');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Employee  $employee
+     * @param  \App\office  $office
      * @return \Illuminate\Http\Response
      */
-    public function show(Employee $employee)
+    public function show(office $office)
     {
         //
     }
@@ -66,12 +62,12 @@ class EmployeesController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Employee  $employee
+     * @param  \App\office  $office
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        $product = Employee::find($id);
+        $product = office::find($id);
 
         return response()->json($product);
     }
@@ -80,36 +76,33 @@ class EmployeesController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Employee  $employee
+     * @param  \App\office  $office
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Employee $employee)
+    public function update(Request $request, office $office)
     {
         $request->validate([
             'id' => 'required',
             'name' => 'required',
-            'position',
-            'office_id' => 'required',
-            'age',
-            'start_date' => 'required',
-            'salary' => 'required'
+            'city',
+            'street'
         ]);
-        Employee::whereId($request->id)->update(request()->except(['_token', '_method']));
+        office::whereId($request->id)->update(request()->except(['_token', '_method']));
 
-        return redirect('/employees');
+        return redirect('/offices');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Employee  $employee
+     * @param  \App\office  $office
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        $post = Employee::findOrFail($id);
+        $post = office::findOrFail($id);
         $post->delete($id); 
           
-        return redirect('/employees');
+        return redirect('/offices');
     }
 }

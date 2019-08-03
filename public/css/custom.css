@@ -10,6 +10,11 @@
 	margin-left: 84px;
 }
 
+.selectStyle {
+	width: 200px;
+	height: 30px;
+}
+
 .modal-footer>:not(:last-child) {
     margin: auto !important;
 }

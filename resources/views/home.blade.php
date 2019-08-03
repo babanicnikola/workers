@@ -15,7 +15,7 @@
               <div class="card-body">
                 <div class="row no-gutters align-items-center">
                   <div class="col mr-2">
-                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Salaries (Monthly)</div>
+                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Salaries</div>
                   <div class="h5 mb-0 font-weight-bold text-gray-800">${{number_format( $salaries )}}</div>
                   </div>
                   <div class="col-auto">
@@ -49,16 +49,12 @@
               <div class="card-body">
                 <div class="row no-gutters align-items-center">
                   <div class="col mr-2">
-                    <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Jobs</div>
+                    <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Offices</div>
                     <div class="row no-gutters align-items-center">
                       <div class="col-auto">
-                        <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">0%</div>
+                      <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{ $numoff }}</div>
                       </div>
-                      <div class="col">
-                        <div class="progress progress-sm mr-2">
-                          <div class="progress-bar bg-info" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                      </div>
+                      
                     </div>
                   </div>
                   <div class="col-auto">
@@ -75,8 +71,8 @@
               <div class="card-body">
                 <div class="row no-gutters align-items-center">
                   <div class="col mr-2">
-                    <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Pending Jobs</div>
-                    <div class="h5 mb-0 font-weight-bold text-gray-800">0</div>
+                    <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Total employees</div>
+                  <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $numemp }}</div>
                   </div>
                   <div class="col-auto">
                     <i class="fas fa-comments fa-2x text-gray-300"></i>

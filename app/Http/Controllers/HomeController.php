@@ -28,12 +28,18 @@ class HomeController extends Controller
     public function index()
     {
         $salaries = 0;
+        $numemp = 0;
+        $numoff = 0;
+
         $results = Employee::select('salary')->from('employees')->where ( 'user_id','=',Auth::user()->id)->get ();
 
         foreach ($results as $salary) {
             $salaries += $salary->salary;
         }
 
-        return view('home', compact('salaries'));
+        $numemp = Employee::select('*')->from('employees')->where('user_id','=',Auth::user()->id)->count('*');
+        $numoff = Employee::select('*')->from('offices')->where('user_id','=',Auth::user()->id)->count('*');
+
+        return view('home', compact('salaries', 'numemp', 'numoff'));
     }
 }

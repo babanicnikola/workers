@@ -17,9 +17,9 @@ class CreateEmployeesTable extends Migration
             $table->bigIncrements('id');
             $table->integer('user_id')->unsigned();
             $table->string('name');
-            $table->string('position');
-            $table->string('office');
-            $table->integer('age');
+            $table->string('position')->nullable();
+            $table->integer('office_id');
+            $table->integer('age')->nullable();
             $table->date('start_date');
             $table->double('salary');
             $table->timestamps();
