@@ -6,6 +6,7 @@
     var navState = localStorage.getItem('sidebar');
     if (navState == null){
       localStorage.setItem('sidebar', 'untoggled');
+      $('#sidebar_loader').css('display', 'block');  
     }
     if (navState == 'toggled') {
       toggleNav();
